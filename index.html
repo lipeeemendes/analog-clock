@@ -5,124 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analog Clock</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body{
-            height: 100vh;
-            background: linear-gradient(to left bottom, purple, yellow);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /*
-        .lines::before{
-            position: absolute;
-            content: "";
-            background: black;
-            height: 100vh;
-            width: 1px;
-            left: 50%;
-        }
-
-        .lines::after{
-            position: absolute;
-            content: "";
-            background: black;
-            height: 1px;
-            width: 100vw;
-            top: 50%;
-        }
-        */
-
-        .clock{
-            width: 200px;
-            height: 200px;
-            background: white;
-            border-radius: 100px;
-            position: relative;
-        }
-
-        .numbers{
-            position:absolute;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-        }
-
-        .clock .numbers.number-1{
-            transform: rotate(30deg);
-        }
-
-        .clock .numbers.number-2{
-            transform: rotate(60deg);
-        }
-
-        .clock .numbers.number-3{
-            transform: rotate(90deg);
-        }
-        .clock .numbers.number-4{
-            transform: rotate(120deg);
-        }
-        .clock .numbers.number-5{
-            transform: rotate(150deg);
-        }
-        .clock .numbers.number-6{
-            transform: rotate(180deg);
-        }
-        .clock .numbers.number-7{
-            transform: rotate(210deg);
-        }
-        .clock .numbers.number-8{
-            transform: rotate(240deg);
-        }
-
-        .clock .numbers.number-9{
-            transform: rotate(270deg);
-        }
-
-        .clock .numbers.number-10{
-            transform: rotate(300deg);
-        }
-
-        .clock .numbers.number-11{
-            transform: rotate(330deg);
-        }
-
-        .hands{
-            --degrees:0;
-            position:absolute;
-            bottom: 50%;
-            left: 50%;
-            background: black;
-            transform: translateX(-50%) rotate(calc(var(--degrees)* 1deg));
-            transform-origin: bottom;
-        }
-
-        .clock .hands.seconds{
-            width: 5px;
-            height: 40%;
-            background: red;
-        }
-        
-        .clock .hands.minutes{
-            width: 8px;
-            height: 35%;
-            background: gray;
-        }
-        .clock .hands.hours{
-            width: 6px;
-            height: 30%;
-            background: black;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
    <div class="lines"></div>
    <div class="clock">
@@ -144,31 +29,6 @@
     <div class="numbers number-12">12</div>
    </div>
 
-   <script>
-
-    const secondsHands= document.querySelector(".hands.seconds")
-    const minutesHands= document.querySelector(".hands.minutes")
-    const hoursHands= document.querySelector(".hands.hours")
-
-    const setRotate= (element,rotatePercentage)=>{
-        element.style.setProperty("--degrees",rotatePercentage*360)
-    }
-
-    const setClock= ()=>{
-        const currentDate= new Date();
-
-        const secondPercentage=currentDate.getSeconds()/60;
-        const minutesPercentage=(secondPercentage+currentDate.getMinutes())/60;
-        const hoursPercentage=(minutesPercentage+currentDate.getHours())/12;
-
-        setRotate(secondsHands,secondPercentage)
-        setRotate(minutesHands,minutesPercentage)
-        setRotate(hoursHands,hoursPercentage)
-    }
-
-    setClock()
-    setInterval(setClock,1000)
-
-   </script>
+   <script src="script.js"></script>
 </body>
 </html>
